@@ -1,0 +1,80 @@
+$max-spacing: 1000;
+
+$breakpoints: (
+  "sm":  576px,
+  "md":  768px,
+  "lg":  992px,
+  "xl":  1200px,
+  "xxl": 1400px,
+);
+
+@for $i from 0 through $max-spacing {
+  // Padding
+  .pad-#{$i}  { padding: #{$i}px !important; }
+  .padt-#{$i} { padding-top: #{$i}px !important; }
+  .padr-#{$i} { padding-right: #{$i}px !important; }
+  .padb-#{$i} { padding-bottom: #{$i}px !important; }
+  .padl-#{$i} { padding-left: #{$i}px !important; }
+  .padx-#{$i} { padding-left: #{$i}px !important; padding-right: #{$i}px !important; }
+  .pady-#{$i} { padding-top: #{$i}px !important; padding-bottom: #{$i}px !important; }
+
+  // Margin
+  .mar-#{$i}  { margin: #{$i}px !important; }
+  .mart-#{$i} { margin-top: #{$i}px !important; }
+  .marr-#{$i} { margin-right: #{$i}px !important; }
+  .marb-#{$i} { margin-bottom: #{$i}px !important; }
+  .marl-#{$i} { margin-left: #{$i}px !important; }
+  .marx-#{$i} { margin-left: #{$i}px !important; margin-right: #{$i}px !important; }
+  .mary-#{$i} { margin-top: #{$i}px !important; margin-bottom: #{$i}px !important; }
+
+  // Minus Margin
+  .min-mar-#{$i}  { margin: -#{$i}px !important; }
+  .min-mart-#{$i} { margin-top: -#{$i}px !important; }
+  .min-marr-#{$i} { margin-right: -#{$i}px !important; }
+  .min-marb-#{$i} { margin-bottom: -#{$i}px !important; }
+  .min-marl-#{$i} { margin-left: -#{$i}px !important; }
+  .min-marx-#{$i} { margin-left: -#{$i}px !important; margin-right: -#{$i}px !important; }
+  .min-mary-#{$i} { margin-top: -#{$i}px !important; margin-bottom: -#{$i}px !important; }
+
+  // Border radius
+  .border-r-#{$i} { border-radius: #{$i}px !important; }
+}
+
+// Auto margins
+.marx-auto { margin-left: auto !important; margin-right: auto !important; }
+.marl-auto { margin-left: auto !important; }
+.marr-auto { margin-right: auto !important; }
+
+
+//  Responsive variants (sm / md / lg / xl / xxl) 
+@each $bp, $min-width in $breakpoints {
+  @media (min-width: #{$min-width}) {
+    @for $i from 0 through $max-spacing {
+      // Padding
+      .pad-#{$bp}-#{$i}  { padding: #{$i}px !important; }
+      .padt-#{$bp}-#{$i} { padding-top: #{$i}px !important; }
+      .padr-#{$bp}-#{$i} { padding-right: #{$i}px !important; }
+      .padb-#{$bp}-#{$i} { padding-bottom: #{$i}px !important; }
+      .padl-#{$bp}-#{$i} { padding-left: #{$i}px !important; }
+      .padx-#{$bp}-#{$i} { padding-left: #{$i}px !important; padding-right: #{$i}px !important; }
+      .pady-#{$bp}-#{$i} { padding-top: #{$i}px !important; padding-bottom: #{$i}px !important; }
+
+      // Margin
+      .mar-#{$bp}-#{$i}  { margin: #{$i}px !important; }
+      .mart-#{$bp}-#{$i} { margin-top: #{$i}px !important; }
+      .marr-#{$bp}-#{$i} { margin-right: #{$i}px !important; }
+      .marb-#{$bp}-#{$i} { margin-bottom: #{$i}px !important; }
+      .marl-#{$bp}-#{$i} { margin-left: #{$i}px !important; }
+      .marx-#{$bp}-#{$i} { margin-left: #{$i}px !important; margin-right: #{$i}px !important; }
+      .mary-#{$bp}-#{$i} { margin-top: #{$i}px !important; margin-bottom: #{$i}px !important; }
+
+      // Border radius
+      .border-r-#{$bp}-#{$i} { border-radius: #{$i}px !important; }
+    }
+
+    // Auto margins per breakpoint
+    .marx-#{$bp}-auto { margin-left: auto !important; margin-right: auto !important; }
+    .marl-#{$bp}-auto { margin-left: auto !important; }
+    .marr-#{$bp}-auto { margin-right: auto !important; }
+  }
+}

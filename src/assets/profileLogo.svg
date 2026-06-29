@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 35 37.8">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        stroke: #cbe448;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-3 {
+        fill: #cbe448;
+      }
+
+      .cls-4 {
+        fill: #63cc78;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" x=".5" y=".5" width="34" height="34" rx="17" ry="17"/>
+    </clipPath>
+  </defs>
+  <g id="Content">
+    <g>
+      <rect class="cls-3" x=".5" y=".5" width="34" height="34" rx="17" ry="17"/>
+      <g class="cls-5">
+        <g>
+          <circle class="cls-4" cx="17.49" cy="12.83" r="6.31"/>
+          <ellipse class="cls-4" cx="17.5" cy="29.75" rx="11.66" ry="8.05"/>
+        </g>
+      </g>
+      <rect class="cls-2" x=".5" y=".5" width="34" height="34" rx="17" ry="17"/>
+    </g>
+  </g>
+</svg>

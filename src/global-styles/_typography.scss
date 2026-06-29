@@ -1,0 +1,21 @@
+$breakpoints: (
+  "sm":  576px,
+  "md":  768px,
+  "lg":  992px,
+  "xl":  1200px,
+  "xxl": 1400px,
+);
+
+@for $i from 1 through 200 {
+  .fs-#{$i} { font-size: #{$i}px !important; }
+}
+
+
+// Responsive
+@each $bp, $min-width in $breakpoints {
+  @media (min-width: #{$min-width}) {
+    @for $i from 1 through 200 {
+      .fs-#{$bp}-#{$i} { font-size: #{$i}px !important; }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+:root {
+  /* --- RAW RGB DATA --- */
+  --rgb-lytpink: 238, 228, 239;
+  --rgb-pink: 255, 165, 229;
+  --rgb-thinkpink: 255, 90, 195;
+  --rgb-lime: 203, 228, 72;
+  --rgb-purple: 161, 80, 239; //A150EF
+  --rgb-dpurple: 133, 49, 153;
+  --rgb-red: 221, 67, 86;
+  --rgb-skyblue: 102, 203, 255;
+  --rgb-blue: 46, 59, 237;
+  --rgb-darkblue: 5, 31, 194;
+  --rgb-deepblue: 2, 4, 63;
+  --rgb-bluegrey: 103, 104, 140;
+  --rgb-orange: 254, 112, 38;
+  --rgb-yellow: 255, 182, 0;
+  --rgb-green: 99, 204, 120;
+  --rgb-darkgreen: 3, 97, 71;
+  --rgb-lavender: 247, 240, 247;
+  --rgb-white: 255, 255, 255;
+  --rgb-grey: 200, 201, 214;
+  --rgb-altb: 0, 135, 193;
+  --rgb-lavendergrey: 210, 197, 212;
+  --rgb-card-ft: 244, 242, 244;
+  --rgb-lightblue: 46, 59, 237;
+  --rgb-lightskyblue: 224, 226, 252;
+  --rgb-verylightgreen: 198, 233, 205;
+  --rgb-darkgrey: 33, 41, 52;
+  --rgb-transparent: 0, 0, 0;
+  --rgb-orgRed: 255, 0, 0;
+  --rgb-orgOrange: 255, 165, 0;
+  --rgb-orgGreen: 0, 128, 0;
+
+  --rgb-DRedThird: 221, 67, 86;
+
+  /* --- Mapped Colors (only those that correspond to raw RGB data) --- */
+  --edy-transparent: rgb(var(--rgb-transparent), 0);
+  --edy-lytpink: rgb(var(--rgb-lytpink));
+  --edy-pink: rgb(var(--rgb-pink));
+  --edy-thinkpink: rgb(var(--rgb-thinkpink));
+  --edy-lime: rgb(var(--rgb-lime));
+  --edy-purple: rgb(var(--rgb-purple));
+  --edy-dpurple: rgb(var(--rgb-dpurple));
+  --edy-red: rgb(var(--rgb-red));
+  --edy-skyblue: rgb(var(--rgb-skyblue));
+  --edy-blue: rgb(var(--rgb-blue));
+  --edy-darkblue: rgb(var(--rgb-darkblue));
+  --edy-deepblue: rgb(var(--rgb-deepblue));
+  --edy-bluegrey: rgb(var(--rgb-bluegrey));
+  --edy-orange: rgb(var(--rgb-orange));
+  --edy-yellow: rgb(var(--rgb-yellow));
+  --edy-green: rgb(var(--rgb-green));
+  --edy-darkgreen: rgb(var(--rgb-darkgreen));
+  --edy-lavender: rgb(var(--rgb-lavender));
+  --edy-white: rgb(var(--rgb-white));
+  --edy-grey: rgb(var(--rgb-grey));
+  --edy-altb: rgb(var(--rgb-altb));
+  --edy-lavendergrey: rgb(var(--rgb-lavendergrey));
+  --edy-lightblue: rgb(var(--rgb-lightblue));
+  --edy-cardft: rgb(var(--rgb-card-ft));
+  --edy-lightskyblue: rgb(var(--rgb-lightskyblue));
+  --edy-verylightgreen: rgb(var(--rgb-verylightgreen));
+  --edy-darkgrey: rgb(var(--rgb-darkgrey));
+  --edy-orgRed: rgb(var(--rgb-orgRed));
+  --edy-orgOrange: rgb(var(--rgb-orgOrange));
+  --edy-orgGreen: rgb(var(--rgb-orgGreen));
+
+  --edy-DRedThird: rgb(var(--rgb-DRedThird));
+}
+
+// Sass Map for our automation loop
+$edy-colors: (
+  "transparent": var(--edy-transparent),
+  "lytpink": var(--edy-lytpink),
+  "pink": var(--edy-pink),
+  "thinkpink": var(--edy-thinkpink),
+  "lime": var(--edy-lime),
+  "purple": var(--edy-purple),
+  "dpurple": var(--edy-dpurple),
+  "red": var(--edy-red),
+  "skyblue": var(--edy-skyblue),
+  "blue": var(--edy-blue),
+  "darkblue": var(--edy-darkblue),
+  "deepblue": var(--edy-deepblue),
+  "bluegrey": var(--edy-bluegrey),
+  "orange": var(--edy-orange),
+  "yellow": var(--edy-yellow),
+  "green": var(--edy-green),
+  "darkgreen": var(--edy-darkgreen),
+  "lavender": var(--edy-lavender),
+  "white": var(--edy-white),
+  "grey": var(--edy-grey),
+  "altb": var(--edy-altb),
+  "lavendergrey": var(--edy-lavendergrey),
+  "cardft": var(--edy-cardft),
+  "lightblue": var(--edy-lightblue),
+  "lightskyblue": var(--edy-lightskyblue),
+  "verylightgreen": var(--edy-verylightgreen),
+  "darkgrey": var(--edy-darkgrey),
+  "orgRed": var(--edy-orgRed),
+  "orgOrange": var(--edy-orgOrange),
+  "orgGreen": var(--edy-orgGreen),
+  "DRedThird": var(--edy-DRedThird),
+);
+
+/* priority dot base */
+.priority-dot {
+  min-width: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: flex;
+  // align-items: flex-start;
+}
+
+/* priority colors using YOUR design tokens */
+.priority-critical {
+  background-color: var(--edy-orgRed);
+  background-color: var(--edy-DRedThird);
+}
+
+.priority-medium {
+  background-color: var(--edy-orgOrange);
+}
+
+.priority-low {
+  background-color: var(--edy-orgGreen);
+}
+
+.priority-warning {
+  background-color: var(--edy-lime);
+}

@@ -1,0 +1,34 @@
+
+$max-count: 1000;
+
+// Breakpoints 
+$breakpoints: (
+  "sm":  576px,
+  "md":  768px,
+  "lg":  992px,
+  "xl":  1200px,
+  "xxl": 1400px,
+);
+
+@for $i from 0 through $max-count {
+  .wd-#{$i}    { width: #{$i}px !important; }
+  .ht-#{$i}    { height: #{$i}px !important; }
+  .mht-#{$i}   { max-height: #{$i}px !important; }
+  .mwd-#{$i}   { max-width: #{$i}px !important; }
+  .minht-#{$i} { min-height: #{$i}px !important; }
+  .minwd-#{$i} { min-width: #{$i}px !important; }
+}
+
+//  Responsive variants (sm / md / lg / xl / xxl) 
+@each $bp, $min-width in $breakpoints {
+  @media (min-width: #{$min-width}) {
+    @for $i from 0 through $max-count {
+      .wd-#{$bp}-#{$i}    { width: #{$i}px !important; }
+      .ht-#{$bp}-#{$i}    { height: #{$i}px !important; }
+      .mht-#{$bp}-#{$i}   { max-height: #{$i}px !important; }
+      .mwd-#{$bp}-#{$i}   { max-width: #{$i}px !important; }
+      .minht-#{$bp}-#{$i} { min-height: #{$i}px !important; }
+      .minwd-#{$bp}-#{$i} { min-width: #{$i}px !important; }
+    }
+  }
+}

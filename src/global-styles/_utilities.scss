@@ -1,0 +1,299 @@
+@use "colors" as *;
+@use "sass:math";
+
+:root {
+  --header-height: 70px;
+
+  // Font Sizes
+  --fs-12: 12px !important;
+  --fs-14: 14px !important;
+  --fs-16: 16px !important;
+  --fs-18: 18px !important;
+  --fs-20: 20px !important;
+  --fs-24: 24px !important;
+  --fs-30: 30px !important;
+  --fs-36: 36px !important;
+  --fs-48: 48px !important;
+  --fs-60: 60px !important;
+
+  // Font Names
+  --font-chamber: ff-chambers-sans-web, sans-serif;
+  --font-ibmsans: ibm-plex-sans, sans-serif;
+  --font-ibmmono: ibm-plex-mono !important;
+}
+
+$opacities: (10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 0);
+
+/* The Loop: Generates .bg-edy-pink, .bg-edy-lime, etc. */
+@each $name, $value in $edy-colors {
+  .bg-edy-#{$name} {
+    background-color: #{$value} !important;
+  }
+
+  /* Generate opacity variants if needed */
+  @each $opc in $opacities {
+    .bg-edy-#{$name}-#{$opc} {
+      background-color: rgba(var(--rgb-#{$name}), $opc * 0.01) !important;
+    }
+  }
+
+  /* Bonus: Generate text color classes too while we're at it */
+  .text-edy-#{$name} {
+    color: #{$value} !important;
+  }
+
+  .hover-text-edy-#{$name}:hover {
+    color: #{$value} !important;
+  }
+
+  .border-edy-#{$name} {
+    border-color: #{$value} !important;
+  }
+
+  .border-focus-edy-#{$name}:focus {
+    border-color: #{$value} !important;
+    outline: none !important;
+  }
+}
+
+// Line-height utilities: lh-1, lh-1-2, lh-1-5, lh-2, etc.
+$line-heights: (
+  "1": 1,
+  "1-1": 1.1,
+  "1-2": 1.2,
+  "1-3": 1.3,
+  "1-4": 1.4,
+  "1-5": 1.5,
+  "1-6": 1.6,
+  "1-7": 1.7,
+  "1-8": 1.8,
+  "1-9": 1.9,
+  "2": 2,
+);
+
+@each $name, $value in $line-heights {
+  .lh-#{$name} {
+    line-height: #{$value} !important;
+  }
+}
+
+.btn-active {
+  background-color: var(--edy-dblue);
+  color: var(--edy-white);
+  letter-spacing: 0.6px;
+  line-height: 1;
+  padding: 0.8rem 1rem;
+  &:hover {
+    background-color: var(--edy-dblue);
+    color: var(--edy-white);
+  }
+}
+
+.btn-outline-active {
+  background-color: transparent;
+  color: var(--edy-dblue);
+  border: 2px solid var(--edy-dblue);
+  letter-spacing: 0.6px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0.8rem 1rem;
+  height: fit-content;
+  &:hover {
+    background-color: var(--edy-dblue);
+    color: var(--edy-white);
+    font-weight: 500;
+  }
+}
+
+.btn-green {
+  background-color: var(--edy-lime);
+  color: var(--edy-dblue);
+  letter-spacing: 0.6px;
+  line-height: 1;
+  height: fit-content;
+  font-weight: 600;
+  font-size: 20px;
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    background-color: var(--edy-lime) !important;
+    color: var(--edy-dblue) !important;
+    border: 1px solid var(--edy-lime) !important;
+  }
+}
+
+.add-user-btn {
+  background-color: var(--edy-blue);
+  color: var(--edy-white);
+  transition: all 0.3s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    background-color: var(--edy-lime);
+    color: var(--edy-blue);
+  }
+}
+
+// Font Weights
+
+@for $i from 0 through 10 {
+  .fw-#{$i} {
+    font-weight: #{$i * 100} !important ;
+  }
+}
+
+// order utilities
+@for $i from 0 through 10 {
+  .order-#{$i} {
+    order: #{$i} !important;
+  }
+}
+
+// Flex gap
+
+@for $i from 0 to 100 {
+  .custom-gap-#{$i} {
+    gap: #{$i}px !important;
+  }
+
+  .custom-gapx-#{$i} {
+    column-gap: #{$i}px !important;
+  }
+
+  .custom-gapy-#{$i} {
+    row-gap: #{$i}px !important;
+  }
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+
+  /* standard property (new browsers) */
+  -webkit-line-clamp: 1;
+
+  /* vendor fallback (most supported) */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+/*  Remove Edge / IE default eye + clear buttons */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+/*  Remove Chrome, Safari autofill icons */
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-textfield-decoration-container,
+input[type="password"]::-webkit-clear-button,
+input[type="password"]::-webkit-inner-spin-button {
+  display: none !important;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+input[type="password"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+// .export-mode .data-filter,
+// .export-mode .btn-zoom,
+.export-mode .card-footer {
+  display: none !important;
+}
+
+// /* Optional: remove extra spacing */
+// .export-mode .card-header {
+//   margin-bottom: 10px;
+// }
+/* existing */
+// .checkbox-option {
+//   cursor: pointer;
+// }
+
+// .checkbox-option input[type="checkbox"] {
+//   cursor: pointer;
+// }
+
+// .checkbox-option label {
+//   cursor: pointer;
+// }
+
+// /* ✅ ADD THIS */
+// .checkbox-item {
+//   cursor: pointer;
+// }
+
+// .checkbox-item input[type="checkbox"] {
+//   cursor: pointer;
+// }
+
+// .checkbox-item label {
+//   cursor: pointer;
+// }
+
+.export-mode,
+.export-mode * {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+
+// Position values 
+
+$pos-value: 10000;
+
+@for $i from 0 through $pos-value {
+  .top-#{$i} {
+    top: #{$i}px !important;
+  }
+  .right-#{$i} {
+    right: #{$i}px !important;
+  }
+  .bottom-#{$i} {
+    bottom: #{$i}px !important;
+  }
+  .left-#{$i} {
+    left: #{$i}px !important;
+  }
+}
+
+// z index values
+
+@for $i from 0 through $pos-value {
+  .z-#{$i} {
+    z-index: #{$i} !important;
+  }
+}
+
+// Responsive
+@each $bp, $min-width in $pos-value {
+  @media (min-width: #{$min-width}) {
+    @for $i from 0 through $pos-value {
+      .top-#{$bp}-#{$i} {
+        top: #{$i}px !important;
+      }
+      .right-#{$bp}-#{$i} {
+        right: #{$i}px !important;
+      }
+      .bottom-#{$bp}-#{$i} {
+        bottom: #{$i}px !important;
+      }
+      .left-#{$bp}-#{$i} {
+        left: #{$i}px !important;
+      }
+
+      .z-#{$bp}-#{$i} {
+        z-index: #{$i} !important;
+      }
+    }
+  }
+}
+
+
